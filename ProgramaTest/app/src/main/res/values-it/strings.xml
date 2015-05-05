@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ProgramaTest</string>
+    <string name="hello_world">Ciao Mondo!</string>
 </resources>
