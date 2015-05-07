@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Primera App</string>
+
+    <string name="hello_world">Hola Mundo!</string>
+    <string name="action_settings">Configuración</string>
+    <string name="btn_txt">Aviso</string>
+    <string name="hint_input">Escribe algo</string>
+</resources>
