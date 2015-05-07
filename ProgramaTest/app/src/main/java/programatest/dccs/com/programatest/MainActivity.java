@@ -2,8 +2,12 @@ package programatest.dccs.com.programatest;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
@@ -14,6 +18,19 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        ...
+        View v = inflater.inflate(R.layout.main, container, false);
+        mAdStatus = (TextView) v.findViewById(R.id.status);
+        mAdView = (AdView) v.findViewById(R.id.ad);
+        mAdView.setAdListener(new MyAdListener());
+
+        AdRequest adRequest = new AdRequest();
+        adRequest.addKeyword("sporting goods");
+        mAdView.loadAd(adRequest);
+        return v;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
