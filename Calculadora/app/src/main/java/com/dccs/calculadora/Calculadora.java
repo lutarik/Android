@@ -19,7 +19,8 @@ public class Calculadora extends Activity implements View.OnClickListener {
     private OperacionesDAOImpl calcula;
 
     /*Declaramos las variables donde guardaremos los operandos y el resultado*/
-    private int op1, op2, operacion;
+    //private int op1, op2, operacion;
+    private int op1, operacion;
 
 
     //Variable de control para controlar si hemos pulsado un operador. Valores = 0 no pulsado / 1 pulsado
@@ -49,7 +50,7 @@ public class Calculadora extends Activity implements View.OnClickListener {
         b_mult.setOnClickListener(this);
         b_resta.setOnClickListener(this);
         b_suma.setOnClickListener(this);
-        b_resta.setOnClickListener(this);
+        b_div.setOnClickListener(this);
         b_igual.setOnClickListener(this);
 
 
@@ -85,32 +86,36 @@ public class Calculadora extends Activity implements View.OnClickListener {
         String oper = ((Button) boton).getText().toString();
         //Si es una suma
         if (oper.equals("+")) {
+            calcula.setA(op1);
             calcula.setOper(1);
             op_pulsado = 1;
             t_result.setText("");
         }
         //Si es una resta
         else if (oper.equals("-")) {
+            calcula.setA(op1);
             calcula.setOper(2);
             op_pulsado = 1;
             t_result.setText("");
         }
         //Si es una multiplicacion
         else if (oper.equals("*")) {
+            calcula.setA(op1);
             calcula.setOper(3);
             op_pulsado = 1;
             t_result.setText("");
         }
         //Si es una división
         else if (oper.equals("/")) {
+            calcula.setA(op1);
             calcula.setOper(4);
             op_pulsado = 1;
             t_result.setText("");
         }
         //Si es el igual
         else if (oper.equals("=")) {
-            calcula.setA(op1);
-            calcula.setB(op2);
+            calcula.setB(op1);
+            //calcula.setB(op2);
             operacion=calcula.calcular();
             t_display.setText(String.valueOf(operacion));
             op_pulsado = 0;
@@ -124,7 +129,7 @@ public class Calculadora extends Activity implements View.OnClickListener {
                 op1 = Integer.parseInt(t_result.getText().toString());
             } else {
                 t_result.setText(t_result.getText() + ((Button) boton).getText().toString());
-                op2 = Integer.parseInt(t_result.getText().toString());
+                op1 = Integer.parseInt(t_result.getText().toString());
             }
         }
 
