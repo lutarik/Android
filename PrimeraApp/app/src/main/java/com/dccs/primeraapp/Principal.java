@@ -22,22 +22,23 @@ public class Principal extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         inicializando();
-        boton.setOnClickListener(new View.OnClickListener(){
+        boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getBaseContext(),texto.getText().toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), texto.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
-    private void inicializando(){
-        boton= (Button) findViewById(R.id.btn_aviso);
+    private void inicializando() {
+        boton = (Button) findViewById(R.id.btn_aviso);
         texto = (TextView) findViewById(R.id.editText);
 
     }
-    public void MuestraTexto(View v){
-        Toast.makeText(getBaseContext(),"Mediante MustraTexto",Toast.LENGTH_SHORT).show();
+
+    public void MuestraTexto(View v) {
+        Toast.makeText(getBaseContext(), "Mediante MustraTexto", Toast.LENGTH_SHORT).show();
 
     }
 
