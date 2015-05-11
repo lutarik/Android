@@ -4,7 +4,7 @@ package com.dccs.calculadora.dao;
 /**
  * Created by androidm on 07/05/2015.
  */
-public class OperacionesDAOImpl implements IOperaciones {
+public class OperacionesImp implements IOperaciones {
     private int oper;
     private int a,b;
 //BigDecimal usado para operaciones matemáticas

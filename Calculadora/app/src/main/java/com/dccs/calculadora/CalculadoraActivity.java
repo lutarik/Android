@@ -5,18 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.dccs.calculadora.dao.OperacionesDAOImpl;
+import com.dccs.calculadora.dao.OperacionesImp;
 
 
-public class Calculadora extends Activity implements View.OnClickListener {
+public class CalculadoraActivity extends Activity implements View.OnClickListener {
 
     /*Declaramos las variables a del Activity*/
     private TextView t_result, t_display;
     private Button b_1, b_2, b_3, b_4, b_5, b_6, b_7, b_8, b_9, b_0;
     private Button b_mult, b_div, b_suma, b_resta, b_igual;
-    private OperacionesDAOImpl calcula;
+    private OperacionesImp calcula;
+    CalculadoraApp miapp;
 
     /*Declaramos las variables donde guardaremos los operandos y el resultado*/
     //private int op1, op2, operacion;
@@ -25,7 +25,7 @@ public class Calculadora extends Activity implements View.OnClickListener {
 
     //Variable de control para controlar si hemos pulsado un operador. Valores = 0 no pulsado / 1 pulsado
     private int op_pulsado;
-    private int igual;//Controlamos si se ha pulsado o no. Valores = 0 no pulsado / 1 pulsado
+    //private int igual;//Controlamos si se ha pulsado o no. Valores = 0 no pulsado / 1 pulsado
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,10 @@ public class Calculadora extends Activity implements View.OnClickListener {
 
     public void inicializaComponentes() {
 
-        calcula = new OperacionesDAOImpl();
+        //calcula = new OperacionesImp();
+        miapp = (CalculadoraApp) this.getApplication();
+        calcula = miapp.getCalculadora();
+
         t_result = (TextView) findViewById(R.id.txt_result);
         t_display = (TextView) findViewById(R.id.txt_display);
 
