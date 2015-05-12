@@ -1,10 +1,11 @@
 package com.dccs.earthquake;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class EarthQuakeActivity extends ActionBarActivity {
@@ -32,12 +33,30 @@ public class EarthQuakeActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.settings) {
             return true;
-        }
-        else if (id == R.id.help) {
+        } else if (id == R.id.help) {
             Intent ayuda = new Intent(this, HelpActivity.class);
+            //Variable serializable
+            Informacion dato = new Informacion("Victor");
+
+            ayuda.putExtra("dato", dato);
+
+            /*
+            *ayuda.putExtra("nombre_dato", valor_dato);
+            *Con este método podemos pasarle a la Activity que cargamos los valores que queremos que tenga en cuenta. Se suela usar "serializable",
+            *que es un proceso por el cual se pasa objetos a un determinado formato que represeenta al objeto
+            */
+
+            //Se lanza la actividad sin esperar respuesta
             startActivity(ayuda);
-        }
-        else if (id == R.id.url) {
+
+            /*
+            *startActivityForResult(ayuda,0);
+            *Se lanza la actividad y espera respuesta. ayuda = Intent y 0 = al id que nosotros queramos asignarle
+            */
+
+            return true;
+        } else if (id == R.id.url) {
+
             return true;
         }
 
@@ -45,8 +64,18 @@ public class EarthQuakeActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Recogemos la devolución de los lanzamientos de las actividades con el metodo startActivityForResult
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        /*TODO:
+        *AQUI HAREMOS TANTOS IF ELSE COMO startActivityForResult QUE HAYAMOS LANZADO
+        * COMPROBANDO EL ID QUE NOS DEVUELVE MEDIANTE LA VARIABLE requestCode.
+        */
+        if (requestCode==1){
+            //para obtener los valores devueltos por la Actividad finalizada
+            String resultado = data.getExtras().getString("datos");
+            Toast.makeText(this, resultado,Toast.LENGTH_SHORT).show();
+        }
     }
 }
