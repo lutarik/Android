@@ -118,7 +118,6 @@ public class CalculadoraActivity extends Activity implements View.OnClickListene
         //Si es el igual
         else if (oper.equals("=")) {
             calcula.setB(op1);
-            //calcula.setB(op2);
             operacion=calcula.calcular();
             t_display.setText(String.valueOf(operacion));
             op_pulsado = 0;

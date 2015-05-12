@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EarthQuake!!</string>
+    <string name="action_settings">Opciones</string>
+    <string name="title_activity_help">Ayuda</string>
+    <string name="mnu_settings">Preferencias</string>
+    <string name="url">URL</string>
+    <string name="help">Ayuda</string>
+</resources>
