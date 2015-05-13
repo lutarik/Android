@@ -1,18 +1,25 @@
 package com.dccs.earthquake.vistas;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.dccs.earthquake.R;
 
 
+
+
 public class SetupActivity extends ActionBarActivity {
 
     private Spinner actualiza;
+    private EditText url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,10 +30,13 @@ public class SetupActivity extends ActionBarActivity {
     //Inicializamos componentes, en este caso el spinner
     private void iniComponentes(){
 
+        //Cargamos Spinner con los valores de refresco
         actualiza = (Spinner) findViewById(R.id.sp_timer);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.tiempos,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        actualiza.setAdapter(adapter);
+        ArrayAdapter<CharSequence> datos = ArrayAdapter.createFromResource(this,R.array.tiempos,android.R.layout.simple_spinner_item);
+        datos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        actualiza.setAdapter(datos);
+
+        url = (EditText) findViewById(R.id.txt_feed);
 
     }
 
@@ -46,7 +56,18 @@ public class SetupActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.mnu_save) {
-
+            //Guardamos frecuencia de actualización.
+            //Cogemos la frecuencia del spinner
+            String frecuencia= actualiza.getSelectedItem().toString();
+            //Creamos variable en Modo Privado
+            SharedPreferences guardarDatos = getSharedPreferences("datos", Context.MODE_PRIVATE);
+            //Abrimos editor de Preferencias
+            Editor editor= guardarDatos.edit();
+            //Añadimos el valor de la frecuencia
+            editor.putString("Frecuencia",frecuencia);
+            //Añadimos la URL del Feed
+            editor.putString("URL", url.getText().toString());
+            editor.apply();
             finish();
         }
 

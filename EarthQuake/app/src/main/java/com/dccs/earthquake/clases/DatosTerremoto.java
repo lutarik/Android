@@ -14,6 +14,15 @@ public class DatosTerremoto {
     private String nombre;
     private float magnitud;
 
+    public DatosTerremoto(Date fecha, String nombre, float magnitud) {
+        this.fecha = fecha;
+        this.nombre = nombre;
+        this.magnitud = magnitud;
+    }
+
+    public DatosTerremoto() {
+    }
+
     public Date getFecha() {
         return fecha;
     }

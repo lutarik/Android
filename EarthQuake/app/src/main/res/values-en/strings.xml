@@ -12,4 +12,6 @@
     <string name="setup_text">Setup the parameters:</string>
     <string name="url_feed">Feed\'s URL</string>
     <string name="actualiza">Actualization period:</string>
+    <string name="fecha">Date</string>
+    <string name="magnitud">Magnitud:</string>
 </resources>

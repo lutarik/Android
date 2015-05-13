@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.dccs.earthquake.R;
 import com.dccs.earthquake.clases.Informacion;
@@ -12,12 +14,23 @@ import com.dccs.earthquake.clases.Informacion;
 
 public class EarthQuakeActivity extends ActionBarActivity {
 
+    Spinner magnitud;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_earth_quake);
+        iniComponentes();
     }
 
+    private void iniComponentes(){
+
+        //Cargamos Spinner con las magnitudes
+        magnitud = (Spinner) findViewById(R.id.sp_magnitud);
+        ArrayAdapter<CharSequence> datos= ArrayAdapter.createFromResource(this,R.array.magnitudes,android.R.layout.simple_spinner_item);
+        datos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        magnitud.setAdapter(datos);
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -42,7 +55,7 @@ public class EarthQuakeActivity extends ActionBarActivity {
             Intent ayuda = new Intent(this, HelpActivity.class);
             //Variable serializable
             Informacion dato = new Informacion("Luis Lorca");
-
+            //Toast.makeText(this,dato.getNombre().toString(),Toast.LENGTH_SHORT).show();
             ayuda.putExtra("dato", dato);
 
             /*

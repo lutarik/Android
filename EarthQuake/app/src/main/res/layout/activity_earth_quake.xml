@@ -5,14 +5,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".EarthQuakeActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fecha"
+        android:id="@+id/lbl_fecha"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textSize="25sp" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
         android:id="@+id/txt_fecha"
-        android:layout_alignParentTop="true"
+        android:editable="true"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/lbl_fecha"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/magnitud"
+        android:id="@+id/lbl_magnitud"
+        android:layout_below="@+id/txt_fecha"
         android:layout_alignParentStart="true"
-        android:editable="true" />
+        android:layout_marginTop="80dp"
+        android:textSize="25sp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sp_magnitud"
+        android:layout_below="@+id/lbl_magnitud"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

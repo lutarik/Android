@@ -12,4 +12,7 @@
     <string name="setup_text">Configuración de los parametros:</string>
     <string name="url_feed">URL del feed</string>
     <string name="actualiza">Periodo Actualización:</string>
+    <string name="fecha">Fecha</string>
+    <string name="magnitud">Magnitud:</string>
+    <string name="title_activity_resultado">Resultados Búsqueda</string>
 </resources>

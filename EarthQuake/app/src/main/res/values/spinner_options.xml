@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tiempos">
+        <item>10min</item>
+        <item>15min</item>
+        <item>20min</item>
+        <item>25min</item>
+        <item>30min</item>
+        <item>60min</item>
+        <item>2h</item>
+        <item>5h</item>
+        <item>24h</item>
+    </string-array>
+
+    <string-array name="magnitudes">
+        <item>Menor de 1</item>
+        <item>Menor de 2</item>
+        <item>Menor de 3</item>
+        <item>Menor de 4</item>
+        <item>Menor de 5</item>
+        <item>Menor de 6</item>
+        <item>Menor de 7</item>
+        <item>Menor de 8</item>
+        <item>Menor de 9</item>
+        <item>Menor de 10</item>
+    </string-array>
+</resources>
