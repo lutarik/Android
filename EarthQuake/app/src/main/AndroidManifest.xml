@@ -2,13 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dccs.earthquake" >
 
+    <permission android:name="android.permission.GET_ACCOUNTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".EarthQuakeActivity"
+            android:name=".vistas.EarthQuakeActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,8 +19,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HelpActivity"
-            android:label="@string/title_activity_help" >
+            android:name=".vistas.HelpActivity"
+            android:label="@string/title_activity_help" />
+        <activity
+            android:name=".vistas.SetupActivity"
+            android:label="@string/title_activity_setup" >
         </activity>
     </application>
 

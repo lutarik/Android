@@ -3,7 +3,13 @@
     <string name="app_name">EarthQuake!!</string>
     <string name="action_settings">Options</string>
     <string name="mnu_settings">Preferencias</string>
-    <string name="url">URL</string>
+    <string name="url">URL:</string>
     <string name="help">Help</string>
     <string name="title_activity_help">Help</string>
+    <string name="title_activity_setup">Settings</string>
+    <string name="save">Save</string>
+    <string name="hello_world">Hello world</string>
+    <string name="setup_text">Setup the parameters:</string>
+    <string name="url_feed">Feed\'s URL</string>
+    <string name="actualiza">Actualization period:</string>
 </resources>
