@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".vistas.ResultadoActivity"
+            android:name=".vistas.BusquedaActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
             android:label="@string/title_activity_resultado" >
         </activity>
         <activity
-            android:name=".vistas.DetalleBusquedaActivity"
+            android:name=".vistas.BusquedaDetalleActivity"
             android:label="@string/title_activity_detalle_busqueda" >
         </activity>
     </application>

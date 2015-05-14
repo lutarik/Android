@@ -12,9 +12,11 @@
     <string name="setup_text">Configuración de los parametros:</string>
     <string name="url_feed">URL del feed</string>
     <string name="actualiza">Periodo Actualización:</string>
-    <string name="fecha">Fecha</string>
+    <string name="fecha">Fecha:</string>
     <string name="magnitud">Magnitud:</string>
     <string name="title_activity_resultado">Resultados Búsqueda</string>
     <string name="img_contenido">Icono del terremoto</string>
     <string name="title_activity_detalle_busqueda">Detalle Terremoto</string>
+    <string name="mnu_detalle">Detalle</string>
+    <string name="terremoto">Terremoto:</string>
 </resources>

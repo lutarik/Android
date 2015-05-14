@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dccs.earthquake.R;
@@ -22,9 +22,9 @@ public class BusquedaAdapter extends BaseAdapter {
     private int layout;
     private List<DatosTerremoto> datos;
 
-    TextView t_terremoto;
-    TextView t_magnitud;
-    ImageButton icono;
+    private TextView t_terremoto;
+    private TextView t_magnitud;
+    private ImageView icono;
 
     public BusquedaAdapter(Context context, int layout, List<DatosTerremoto> datos) {
         this.context = context;
@@ -67,9 +67,10 @@ public class BusquedaAdapter extends BaseAdapter {
         DatosTerremoto item = (DatosTerremoto) getItem(position);
 
         //inicializamos componentes
-        TextView t_terremoto = (TextView) convertView.findViewById(R.id.lbl_terremoto);
-        TextView t_magnitud = (TextView) convertView.findViewById(R.id.lbl_magnitud);
-        ImageButton icono = (ImageButton) convertView.findViewById(R.id.img_terremoto);
+        t_terremoto = (TextView) convertView.findViewById(R.id.lbl_terremoto);
+        t_magnitud = (TextView) convertView.findViewById(R.id.lbl_magnitud);
+        icono = (ImageView) convertView.findViewById(R.id.img_terremoto);
+
         t_terremoto.setText(item.getNombre());
         t_magnitud.setText(String.valueOf(item.getMagnitud()));
 

@@ -1,11 +1,11 @@
 package com.dccs.earthquake.clases;
 
-import java.util.Date;
+import java.io.Serializable;
 
 /**
- * Created by androidm on 13/05/2015.
+ * DccS
  */
-public class DatosTerremoto {
+public class DatosTerremoto implements Serializable {
 
     /*
     Guardamos los datos del terremoto, sirve tanto para filtrar como para mostrar datos
