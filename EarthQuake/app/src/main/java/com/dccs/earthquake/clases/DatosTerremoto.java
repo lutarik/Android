@@ -10,11 +10,11 @@ public class DatosTerremoto {
     /*
     Guardamos los datos del terremoto, sirve tanto para filtrar como para mostrar datos
      */
-    private Date fecha;
+    private String fecha;
     private String nombre;
     private float magnitud;
 
-    public DatosTerremoto(Date fecha, String nombre, float magnitud) {
+    public DatosTerremoto(String fecha, String nombre, float magnitud) {
         this.fecha = fecha;
         this.nombre = nombre;
         this.magnitud = magnitud;
@@ -23,11 +23,11 @@ public class DatosTerremoto {
     public DatosTerremoto() {
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

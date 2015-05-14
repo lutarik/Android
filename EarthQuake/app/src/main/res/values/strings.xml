@@ -15,4 +15,6 @@
     <string name="fecha">Fecha</string>
     <string name="magnitud">Magnitud:</string>
     <string name="title_activity_resultado">Resultados Búsqueda</string>
+    <string name="img_contenido">Icono del terremoto</string>
+    <string name="title_activity_detalle_busqueda">Detalle Terremoto</string>
 </resources>

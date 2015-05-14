@@ -15,10 +15,11 @@ import com.dccs.earthquake.clases.Informacion;
 public class EarthQuakeActivity extends ActionBarActivity {
 
     Spinner magnitud;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_earth_quake);
+        setContentView(R.layout.activity_earthquake);
         iniComponentes();
     }
 

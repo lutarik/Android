@@ -14,4 +14,6 @@
     <string name="actualiza">Actualization period:</string>
     <string name="fecha">Date</string>
     <string name="magnitud">Magnitud:</string>
+    <string name="title_activity_resultado">Search Result</string>
+    <string name="img_contenido">Earthquake icon</string>
 </resources>

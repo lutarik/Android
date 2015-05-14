@@ -56,16 +56,16 @@ public class SetupActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.mnu_save) {
-            //Guardamos frecuencia de actualización.
+            //Guardamos frecuencia de actualizacion.
             //Cogemos la frecuencia del spinner
             String frecuencia= actualiza.getSelectedItem().toString();
             //Creamos variable en Modo Privado
             SharedPreferences guardarDatos = getSharedPreferences("datos", Context.MODE_PRIVATE);
             //Abrimos editor de Preferencias
             Editor editor= guardarDatos.edit();
-            //Añadimos el valor de la frecuencia
+            //Anyadimos el valor de la frecuencia
             editor.putString("Frecuencia",frecuencia);
-            //Añadimos la URL del Feed
+            //Anyadimos la URL del Feed
             editor.putString("URL", url.getText().toString());
             editor.apply();
             finish();
