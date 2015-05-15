@@ -1,35 +1,44 @@
-package com.dccs.earthquake.vistas;
+package com.dccs.earthquake.fragments;
 
-import android.app.Activity;
+
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.dccs.earthquake.adapters.BusquedaAdapter;
 import com.dccs.earthquake.R;
+import com.dccs.earthquake.adapters.BusquedaAdapter;
 import com.dccs.earthquake.clases.DatosTerremoto;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class BusquedaActivity extends Activity {
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class BusquedaFragment extends Fragment {
+
 
     ListView busqueda;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_busqueda);
-
-        iniComponentes();
+    public BusquedaFragment() {
+        // Required empty public constructor
     }
 
-    private void iniComponentes() {
-        busqueda = (ListView) findViewById(R.id.lv_resultado);
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View vista = inflater.inflate(R.layout.frg_busqueda, container, false);
+        busqueda = (ListView) vista.findViewById(R.id.lv_resultado);
 
         List<DatosTerremoto> datos = new LinkedList<DatosTerremoto>();
 
@@ -37,34 +46,26 @@ public class BusquedaActivity extends Activity {
         datos = cargaDatos(datos, "15/03/2015", "Terremoto 2", 5);
         datos = cargaDatos(datos, "20/04/2015", "Terremoto 3", 1);
 
-        BusquedaAdapter adaptador = new BusquedaAdapter(this, R.layout.layout_search_list, datos);
+        BusquedaAdapter adaptador = new BusquedaAdapter(container.getContext(), R.layout.layout_search_list, datos);
 
         busqueda.setAdapter(adaptador);
 
         registerForContextMenu(busqueda);
+
+        // Inflate the layout for this fragment
+        return vista;
     }
 
-
-    //Creamos menu contextual
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        if (v.getId() == R.id.lv_resultado) {
-            //Creamos el menu
-            getMenuInflater().inflate(R.menu.mnu_contextual_busqueda, menu);
-            //Obtenemos la posicion en la que hemos pinchado
-            int posicion = ((AdapterView.AdapterContextMenuInfo) menuInfo).position;
 
-            DatosTerremoto terremoto = (DatosTerremoto) busqueda.getAdapter().getItem(posicion);
-            menu.setHeaderTitle(terremoto.getNombre());
-        }
     }
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
-        Intent detalle = new Intent(BusquedaActivity.this,BusquedaDetalleActivity.class);
         int itemId = item.getItemId();
         //Recuperamos el menu
         ContextMenu.ContextMenuInfo menuInfo = item.getMenuInfo();
@@ -73,18 +74,16 @@ public class BusquedaActivity extends Activity {
         if (itemId == R.id.detalle) {
             int posicion = ((AdapterView.AdapterContextMenuInfo) menuInfo).position;
             DatosTerremoto terremoto = (DatosTerremoto) busqueda.getAdapter().getItem(posicion);
-            detalle.putExtra("terremoto",terremoto);
-            startActivity(detalle);
+
         }
 
         return super.onContextItemSelected(item);
     }
+
 
     private List<DatosTerremoto> cargaDatos(List<DatosTerremoto> datos, String fecha, String nombre, float mag) {
 
         datos.add(new DatosTerremoto(fecha, nombre, mag));
         return datos;
     }
-
-
 }
