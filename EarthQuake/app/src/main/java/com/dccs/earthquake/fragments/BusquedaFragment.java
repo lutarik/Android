@@ -2,14 +2,10 @@ package com.dccs.earthquake.fragments;
 
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.dccs.earthquake.R;
@@ -38,7 +34,7 @@ public class BusquedaFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View vista = inflater.inflate(R.layout.frg_busqueda, container, false);
-        busqueda = (ListView) vista.findViewById(R.id.lv_resultado);
+
 
         List<DatosTerremoto> datos = new LinkedList<DatosTerremoto>();
 
@@ -50,8 +46,6 @@ public class BusquedaFragment extends Fragment {
 
         busqueda.setAdapter(adaptador);
 
-        registerForContextMenu(busqueda);
-
         // Inflate the layout for this fragment
         return vista;
     }
@@ -60,24 +54,10 @@ public class BusquedaFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
     }
 
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-
-        int itemId = item.getItemId();
-        //Recuperamos el menu
-        ContextMenu.ContextMenuInfo menuInfo = item.getMenuInfo();
-
-
-        if (itemId == R.id.detalle) {
-            int posicion = ((AdapterView.AdapterContextMenuInfo) menuInfo).position;
-            DatosTerremoto terremoto = (DatosTerremoto) busqueda.getAdapter().getItem(posicion);
-
-        }
-
-        return super.onContextItemSelected(item);
+    public void registerListViewDTOnClickListener(View.OnClickListener listener) {
+        busqueda.setOnClickListener(listener);
     }
 
 

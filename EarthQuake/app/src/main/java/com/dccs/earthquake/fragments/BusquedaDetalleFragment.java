@@ -28,8 +28,16 @@ public class BusquedaDetalleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.frg_busqueda_detalle, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        DatosTerremoto item = (DatosTerremoto) getActivity().getIntent().getExtras().getSerializable("terremto");
+        actualizarDetalle(item);
     }
 
     public void actualizarDetalle(DatosTerremoto item) {
