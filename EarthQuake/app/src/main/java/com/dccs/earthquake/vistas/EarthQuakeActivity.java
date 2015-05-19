@@ -5,16 +5,22 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.dccs.earthquake.R;
+import com.dccs.earthquake.clases.DatosTerremoto;
 import com.dccs.earthquake.clases.Informacion;
 
 
-public class EarthQuakeActivity extends ActionBarActivity {
+public class EarthQuakeActivity extends ActionBarActivity implements View.OnClickListener {
 
-    Spinner magnitud;
+    Spinner sp_mag;
+    Button b_busqueda;
+    TextView t_fecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +32,16 @@ public class EarthQuakeActivity extends ActionBarActivity {
     private void iniComponentes(){
 
         //Cargamos Spinner con las magnitudes
-        magnitud = (Spinner) findViewById(R.id.sp_magnitud);
+        sp_mag = (Spinner) findViewById(R.id.sp_magnitud);
         ArrayAdapter<CharSequence> datos= ArrayAdapter.createFromResource(this,R.array.magnitudes,android.R.layout.simple_spinner_item);
         datos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        magnitud.setAdapter(datos);
+        sp_mag.setAdapter(datos);
+        //Creamos el boton
+        b_busqueda = (Button) findViewById(R.id.btn_search);
+        b_busqueda.setOnClickListener(this);
+        //Creamos campo fecha
+        t_fecha = (TextView) findViewById(R.id.txt_fecha);
+        t_fecha.setOnClickListener(this);
 
     }
     @Override
@@ -76,6 +88,23 @@ public class EarthQuakeActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onClick(View campo) {
+
+        if (campo.getId() == R.id.btn_search){
+            DatosTerremoto item_busqueda = new DatosTerremoto();
+            Intent busqueda = new Intent(this, BusquedaActivity.class);
+
+            item_busqueda.setFecha(t_fecha.getText().toString());
+            item_busqueda.setMagnitud(Integer.parseInt(sp_mag.getSelectedItem().toString()));
+
+            busqueda.putExtra("busqueda", item_busqueda);
+            startActivity(busqueda);
+        }
+
     }
 
 /*    //Recogemos la devolucion de los lanzamientos de las actividades con el metodo startActivityForResult

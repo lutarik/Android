@@ -87,6 +87,7 @@ public class CalculadoraActivity extends Activity implements View.OnClickListene
     @Override
     public void onClick(View boton) {
         String oper = ((Button) boton).getText().toString();
+
         //Si es una suma
         if (oper.equals("+")) {
             calcula.setA(op1);

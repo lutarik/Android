@@ -36,8 +36,12 @@ public class BusquedaDetalleFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        DatosTerremoto item = (DatosTerremoto) getActivity().getIntent().getExtras().getSerializable("terremto");
-        actualizarDetalle(item);
+
+        DatosTerremoto item = (DatosTerremoto) getActivity().getIntent().getSerializableExtra("item");
+        if (item!=null){
+            actualizarDetalle(item);
+        }
+
     }
 
     public void actualizarDetalle(DatosTerremoto item) {

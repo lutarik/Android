@@ -7,7 +7,7 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:name="com.dccs.earthquake.fragments.BusquedaFragment"
-        android:id="@+id/frg_busqueda"
+        android:id="@+id/frag_busqueda"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true" />
@@ -16,10 +16,10 @@
         android:layout_width="523dp"
         android:layout_height="match_parent"
         android:name="com.dccs.earthquake.fragments.BusquedaDetalleFragment"
-        android:id="@+id/frg_busqueda_detalle"
+        android:id="@+id/frag_busqueda_detalle"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="0dp"
-        android:layout_toEndOf="@+id/frg_busqueda" />
+        android:layout_toEndOf="@+id/frag_busqueda" />
 </RelativeLayout>

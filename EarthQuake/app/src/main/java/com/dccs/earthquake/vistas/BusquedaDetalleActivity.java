@@ -17,7 +17,7 @@ public class BusquedaDetalleActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda_detalle);
 
-        DatosTerremoto terremoto = (DatosTerremoto) getIntent().getExtras().getSerializable("terremoto");
+        DatosTerremoto terremoto = (DatosTerremoto) getIntent().getExtras().getSerializable("item");
 
         iniComponentes();
 
