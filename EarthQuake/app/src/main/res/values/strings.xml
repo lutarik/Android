@@ -11,7 +11,7 @@
     <string name="action_settings">Settings</string>
     <string name="setup_text">Configuración de los parametros:</string>
     <string name="url_feed">URL del feed</string>
-    <string name="actualiza">Periodo Actualización:</string>
+    <string name="actualiza">Frec. Actualizacion (min):</string>
     <string name="fecha">Fecha:</string>
     <string name="magnitud">Magnitud:</string>
     <string name="title_activity_resultado">Resultados Búsqueda</string>
@@ -23,4 +23,5 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="buscar">Buscar</string>
+    <string name="sync">Sincronizar</string>
 </resources>

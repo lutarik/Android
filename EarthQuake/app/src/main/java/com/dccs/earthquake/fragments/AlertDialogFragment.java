@@ -1,4 +1,4 @@
-package com.dccs.dialogos;
+package com.dccs.earthquake.fragments;
 
 
 import android.app.AlertDialog;
@@ -7,18 +7,23 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.dccs.earthquake.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class miDialogoFragment extends DialogFragment {
+public class AlertDialogFragment extends DialogFragment {
 
     private DialogInterface.OnClickListener btn_positivo;
     private DialogInterface.OnClickListener btn_negativo;
     private String msj="Desea Continuar?";
 
-    public miDialogoFragment() {
+    public AlertDialogFragment() {
         // Required empty public constructor
     }
 
@@ -30,13 +35,13 @@ public class miDialogoFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder factoria = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder aviso = new AlertDialog.Builder(getActivity());
 
-        factoria.setMessage(msj);
-        factoria.setPositiveButton("Si", btn_positivo);
-        factoria.setNegativeButton("No", btn_negativo);
+        aviso.setMessage(msj);
+        aviso.setPositiveButton("Si", btn_positivo);
+        aviso.setNegativeButton("No", btn_negativo);
 
-        return factoria.create();
+        return aviso.create();
     }
 
     public boolean setOnClickListenerSi(DialogInterface.OnClickListener listener) {

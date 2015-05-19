@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="tiempos">
-        <item>10min</item>
-        <item>15min</item>
-        <item>20min</item>
-        <item>25min</item>
-        <item>30min</item>
-        <item>60min</item>
-        <item>2h</item>
-        <item>5h</item>
-        <item>24h</item>
+        <item>10</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+        <item>90</item>
+        <item>120</item>
+        <item>150</item>
+        <item>180</item>
+        <item>210</item>
     </string-array>
 
     <string-array name="magnitudes">

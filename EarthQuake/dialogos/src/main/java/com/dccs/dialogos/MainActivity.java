@@ -36,7 +36,7 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-
+           alerta.setPersonalMessage("Desea acceder a los ajustes?");
             alerta.setOnClickListenerSi(new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -50,7 +50,22 @@ public class MainActivity extends ActionBarActivity {
                 }
             });
 
-            //alerta.onCreate(null);
+            alerta.show(getFragmentManager(), "MiDialogoFragment");
+            return true;
+        }else         if (id == R.id.action_settings2) {
+            //alerta.setPersonalMessage("Desea acceder a los ajustes?");
+            alerta.setOnClickListenerSi(new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Toast.makeText(MainActivity.this, "Has pulsado en Si", Toast.LENGTH_SHORT).show();
+                }
+            });
+            alerta.setOnClickListenerNo(new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Toast.makeText(MainActivity.this, "Has pulsado en No", Toast.LENGTH_SHORT).show();
+                }
+            });
 
             alerta.show(getFragmentManager(), "MiDialogoFragment");
             return true;

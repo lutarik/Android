@@ -11,7 +11,7 @@
     <string name="hello_world">Hello world</string>
     <string name="setup_text">Setup the parameters:</string>
     <string name="url_feed">Feed\'s URL</string>
-    <string name="actualiza">Actualization period:</string>
+    <string name="actualiza">Actualization freq (min):</string>
     <string name="fecha">Date:</string>
     <string name="magnitud">Magnitud:</string>
     <string name="title_activity_resultado">Search Result</string>
@@ -20,4 +20,5 @@
     <string name="mnu_detalle">Detail</string>
     <string name="terremoto">Earthquake:</string>
     <string name="buscar">Search</string>
+    <string name="sync">Sync</string>
 </resources>

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.dccs.earthquake.R;
 import com.dccs.earthquake.clases.DatosTerremoto;
 import com.dccs.earthquake.clases.Informacion;
+import com.dccs.earthquake.fragments.DatePickerDialogFragment;
 
 
 public class EarthQuakeActivity extends ActionBarActivity implements View.OnClickListener {
@@ -21,6 +22,8 @@ public class EarthQuakeActivity extends ActionBarActivity implements View.OnClic
     Spinner sp_mag;
     Button b_busqueda;
     TextView t_fecha;
+    DatePickerDialogFragment sel_fecha;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +32,11 @@ public class EarthQuakeActivity extends ActionBarActivity implements View.OnClic
         iniComponentes();
     }
 
-    private void iniComponentes(){
+    private void iniComponentes() {
 
         //Cargamos Spinner con las magnitudes
         sp_mag = (Spinner) findViewById(R.id.sp_magnitud);
-        ArrayAdapter<CharSequence> datos= ArrayAdapter.createFromResource(this,R.array.magnitudes,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> datos = ArrayAdapter.createFromResource(this, R.array.magnitudes, android.R.layout.simple_spinner_item);
         datos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_mag.setAdapter(datos);
         //Creamos el boton
@@ -44,6 +47,7 @@ public class EarthQuakeActivity extends ActionBarActivity implements View.OnClic
         t_fecha.setOnClickListener(this);
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -71,12 +75,6 @@ public class EarthQuakeActivity extends ActionBarActivity implements View.OnClic
             //Toast.makeText(this,dato.getNombre().toString(),Toast.LENGTH_SHORT).show();
             ayuda.putExtra("dato", dato);
 
-            /*
-            *ayuda.putExtra("nombre_dato", valor_dato);
-            *Con este metodo podemos pasarle a la Activity que cargamos los valores que queremos que tenga en cuenta. Se suela usar "serializable",
-            *que es un proceso por el cual se pasa objetos a un determinado formato que represeenta al objeto
-            */
-
             //Se lanza la actividad sin esperar respuesta
             startActivity(ayuda);
 
@@ -94,7 +92,7 @@ public class EarthQuakeActivity extends ActionBarActivity implements View.OnClic
     @Override
     public void onClick(View campo) {
 
-        if (campo.getId() == R.id.btn_search){
+        if (campo.getId() == R.id.btn_search) {
             DatosTerremoto item_busqueda = new DatosTerremoto();
             Intent busqueda = new Intent(this, BusquedaActivity.class);
 
@@ -103,9 +101,12 @@ public class EarthQuakeActivity extends ActionBarActivity implements View.OnClic
 
             busqueda.putExtra("busqueda", item_busqueda);
             startActivity(busqueda);
+        } else if (campo.getId() == R.id.txt_fecha) {
+
         }
 
     }
+
 
 /*    //Recogemos la devolucion de los lanzamientos de las actividades con el metodo startActivityForResult
     @Override
