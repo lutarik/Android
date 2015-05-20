@@ -96,7 +96,7 @@ public class EarthQuakeActivity extends ActionBarActivity implements View.OnClic
             DatosTerremoto item_busqueda = new DatosTerremoto();
             Intent busqueda = new Intent(this, BusquedaActivity.class);
 
-            item_busqueda.setFecha(t_fecha.getText().toString());
+            //item_busqueda.setFecha(t_fecha.getText().toString());
             item_busqueda.setMagnitud(Integer.parseInt(sp_mag.getSelectedItem().toString()));
 
             busqueda.putExtra("busqueda", item_busqueda);

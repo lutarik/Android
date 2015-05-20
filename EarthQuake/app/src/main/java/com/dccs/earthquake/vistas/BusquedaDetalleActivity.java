@@ -21,7 +21,7 @@ public class BusquedaDetalleActivity extends Activity {
 
         iniComponentes();
 
-        t_titulo.setText(this.getString(R.string.terremoto) + " " + terremoto.getNombre());
+        t_titulo.setText(this.getString(R.string.terremoto) + " " + terremoto.getTitulo());
         t_fecha.setText(this.getString(R.string.fecha) + " " + terremoto.getFecha());
         t_mag.setText(this.getString(R.string.magnitud) + " " + String.valueOf(terremoto.getMagnitud()));
 

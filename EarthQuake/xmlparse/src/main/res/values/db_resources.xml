@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="script_creacion">
+        <item>CREATE TABLE [Terremotos] ([terr_id] VARCHAR(50)  NULL PRIMARY KEY,[terr_titulo] VARCHAR(50)  NULL,[terr_fecha] DATE  NULL,[terr_link] VARCHAR(200)  NULL,[terr_latitud] FLOAT  NULL,[terr_longitud] FLOAT  NULL,[terr_magnitud] FLOAT  NULL)</item>
+    </string-array>
+
+    <string-array name="script_updateV1" />
+    <string-array name="script_updateV2" />
+</resources>

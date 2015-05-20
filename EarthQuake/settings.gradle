@@ -1,1 +1,1 @@
-include ':app', ':fragments', ':dialogos'
+include ':app', ':fragments', ':dialogos', ':xmlparse'

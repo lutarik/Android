@@ -1,17 +1,11 @@
-package com.dccs.earthquake.clases;
+package com.dccs.xmlparse;
 
-import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 
 /**
- * DccS
+ * Created by androidm on 20/05/2015.
  */
-public class DatosTerremoto implements Serializable {
-
-    /*
-    Guardamos los datos del terremoto, sirve tanto para filtrar como para mostrar datos
-     */
+public class Terremoto {
     private String id;
     private String titulo;
     private Date fecha;
@@ -20,29 +14,43 @@ public class DatosTerremoto implements Serializable {
     private double longitud;
     private float magnitud;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        DatosTerremoto that = (DatosTerremoto) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public Terremoto() {
     }
 
     @Override
     public String toString() {
-        return "DatosTerremoto{" +
+        return "Terremoto{" +
                 "titulo='" + titulo + '\'' +
                 ", magnitud=" + magnitud +
                 ", fecha=" + fecha +
                 '}';
     }
 
-    public DatosTerremoto() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Terremoto terremoto = (Terremoto) o;
+
+        if (id != null ? !id.equals(terremoto.id) : terremoto.id != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    public Terremoto(String id, String titulo, Date fecha, String link, double latitud, double longitud, float magnitud) {
+        this.id = id;
+        this.titulo = titulo;
+        this.fecha = fecha;
+        this.link = link;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.magnitud = magnitud;
     }
 
     public String getId() {

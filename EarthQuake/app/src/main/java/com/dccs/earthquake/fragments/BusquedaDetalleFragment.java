@@ -48,7 +48,7 @@ public class BusquedaDetalleFragment extends Fragment {
 
         iniComponentes();
 
-        t_titulo.setText(this.getString(R.string.terremoto) + " " + item.getNombre());
+        t_titulo.setText(this.getString(R.string.terremoto) + " " + item.getTitulo());
         t_fecha.setText(this.getString(R.string.fecha) + " " + item.getFecha());
         t_mag.setText(this.getString(R.string.magnitud) + " " + String.valueOf(item.getMagnitud()));
     }

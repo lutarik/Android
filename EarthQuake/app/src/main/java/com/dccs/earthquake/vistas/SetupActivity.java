@@ -46,6 +46,7 @@ public class SetupActivity extends ActionBarActivity {
         SharedPreferences preferencias = getSharedPreferences("Preferencias EarthQuake",MODE_PRIVATE);
         url.setText(preferencias.getString("URL", "No definida"));
 
+        actualiza.setSelection(preferencias.getInt("Frecuencia",0));
 
     }
 
@@ -71,7 +72,7 @@ public class SetupActivity extends ActionBarActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     //Guardamos frecuencia de actualizacion.
                     //Cogemos la frecuencia del spinner
-                    int frecuencia = Integer.parseInt(actualiza.getSelectedItem().toString());
+                    int frecuencia = actualiza.getSelectedItemPosition();
                     //Creamos variable en Modo Privado
                     SharedPreferences guardarDatos = getSharedPreferences("Preferencias EarthQuake", Context.MODE_PRIVATE);
                     //Abrimos editor de Preferencias

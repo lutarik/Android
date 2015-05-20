@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dccs.earthquake" >
+    package="com.dccs.earthquake">
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@drawable/earthquake"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".vistas.EarthQuakeActivity"
-            android:label="@string/app_name" >
+
+            android:name=".vistas.BusquedaActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,16 +23,14 @@
             android:label="@string/title_activity_help" />
         <activity
             android:name=".vistas.SetupActivity"
-            android:label="@string/title_activity_setup" >
-        </activity>
+            android:label="@string/title_activity_setup"></activity>
         <activity
-            android:name=".vistas.BusquedaActivity"
-            android:label="@string/title_activity_resultado" >
-        </activity>
+            android:name=".vistas.EarthQuakeActivity"
+
+            android:label="@string/title_activity_resultado"></activity>
         <activity
             android:name=".vistas.BusquedaDetalleActivity"
-            android:label="@string/title_activity_detalle_busqueda" >
-        </activity>
+            android:label="@string/title_activity_detalle_busqueda"></activity>
     </application>
 
 </manifest>
