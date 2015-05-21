@@ -1,5 +1,6 @@
 package com.dccs.earthquake.vistas;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,21 +9,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.dccs.earthquake.R;
 import com.dccs.earthquake.clases.DatosTerremoto;
+import com.dccs.earthquake.clases.FiltroBusquedaDTO;
 import com.dccs.earthquake.clases.Informacion;
-import com.dccs.earthquake.fragments.DatePickerDialogFragment;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 
-public class EarthQuakeActivity extends ActionBarActivity implements View.OnClickListener {
+public class EarthQuakeActivity extends ActionBarActivity implements View.OnClickListener, DatePickerDialog.OnDateSetListener {
 
     Spinner sp_mag;
     Button b_busqueda;
     TextView t_fecha;
-    DatePickerDialogFragment sel_fecha;
+    private Calendar c = Calendar.getInstance();
+
 
 
     @Override
@@ -45,7 +52,7 @@ public class EarthQuakeActivity extends ActionBarActivity implements View.OnClic
         //Creamos campo fecha
         t_fecha = (TextView) findViewById(R.id.txt_fecha);
         t_fecha.setOnClickListener(this);
-
+        updateLabel();
     }
 
     @Override
@@ -93,7 +100,9 @@ public class EarthQuakeActivity extends ActionBarActivity implements View.OnClic
     public void onClick(View campo) {
 
         if (campo.getId() == R.id.btn_search) {
-            DatosTerremoto item_busqueda = new DatosTerremoto();
+
+            FiltroBusquedaDTO itemFiltro = new FiltroBusquedaDTO(Integer.parseInt(sp_mag.getSelectedItem().toString()), t_fecha.getText().toString())
+
             Intent busqueda = new Intent(this, BusquedaActivity.class);
 
             //item_busqueda.setFecha(t_fecha.getText().toString());
@@ -102,10 +111,35 @@ public class EarthQuakeActivity extends ActionBarActivity implements View.OnClic
             busqueda.putExtra("busqueda", item_busqueda);
             startActivity(busqueda);
         } else if (campo.getId() == R.id.txt_fecha) {
-
+            mostrarFecha();
         }
 
     }
+
+    private void mostrarFecha() {
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, this, year, month, day);
+
+        datePickerDialog.show();
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, monthOfYear);
+        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        updateLabel();
+    }
+
+    private void updateLabel() {
+        Date date = c.getTime();
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        t_fecha.setText(format.format(date));
+    }
+
 
 
 /*    //Recogemos la devolucion de los lanzamientos de las actividades con el metodo startActivityForResult

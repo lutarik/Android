@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/magnitud"
-        android:id="@+id/lbl_magnitud"
+        android:id="@+id/lbl_mag"
         android:layout_below="@+id/txt_fecha"
         android:layout_alignParentStart="true"
         android:layout_marginTop="80dp"
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sp_magnitud"
-        android:layout_below="@+id/lbl_magnitud"
+        android:layout_below="@+id/lbl_fecha"
         android:layout_alignParentStart="true" />
 
     <Button
